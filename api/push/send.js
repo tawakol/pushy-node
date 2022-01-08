@@ -61,7 +61,7 @@ module.exports = function (data, recipient, options, callback) {
         // Make a request to the Send Notifications API
         request(
             Object.assign({
-                uri: that.getApiEndpoint() + '/push?api_key=' + that.apiKey,
+                uri: that.getApiEndpoint() + '/push?api_key=' + that.getApiKey(),
                 method: 'POST',
                 json: postData
             }, that.extraRequestOptions || {}), function (err, res, body) {

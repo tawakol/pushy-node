@@ -32,8 +32,13 @@ Pushy.prototype.subscribe = require('./api/pubsub/subscribe');
 Pushy.prototype.unsubscribe = require('./api/pubsub/unsubscribe');
 Pushy.prototype.getSubscribers = require('./api/pubsub/subscribers');
 
+//API Key Getter
+getApiKey = function () {
+    return this.apiKey;
+}
+
 // API endpoint selector
-Pushy.prototype.getApiEndpoint = function () {
+getApiEndpoint = function () {
     return (this.enterpriseEndpoint) ? this.enterpriseEndpoint : apiEndpoint;
 }
 
