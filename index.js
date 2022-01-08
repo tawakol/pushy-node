@@ -1,20 +1,21 @@
 // Pushy API endpoint
 var apiEndpoint = 'https://api.pushy.me';
+var apiKey;
 
 // Package constructor
-function Pushy(apiKey) {
+function Pushy(apiKeyInitialize) {
     // Make sure the developer provided an API key
-    if (!apiKey) {
+    if (!apiKeyInitialize) {
         throw new Error('Please provide your Secret API key to use this package.');
     }
 
     // Check for alphanumeric API key
-    if (!apiKey.match(/^[0-9a-zA-Z]+$/)) {
+    if (!apiKeyInitialize.match(/^[0-9a-zA-Z]+$/)) {
         throw new Error('Please provide a valid, alphanumeric API key.');
     }
 
     // Save it for later
-    this.apiKey = apiKey;
+    apiKey = apiKeyInitialize;
 }
 
 // Push APIs
@@ -34,7 +35,7 @@ Pushy.prototype.getSubscribers = require('./api/pubsub/subscribers');
 
 //API Key Getter
 getApiKey = function () {
-    return this.apiKey;
+    return apiKey;
 }
 
 // API endpoint selector
